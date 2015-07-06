@@ -1,0 +1,9 @@
+tmpdir=`mktemp -d 2>/dev/null || mktemp -d -t 'arm-assembler'` &&
+cat - > $tmpdir/assemble.S <<"aklsjdflsdjf"
+.global _start
+_start:
+<%- asm %>
+aklsjdflsdjf
+arm-none-eabi-gcc -mlittle-endian -o $tmpdir/assembled.bin $tmpdir/assemble.S &&
+arm-none-eabi-objdump -j .text --disassemble $tmpdir/assembled.bin &&
+rm -rf $tmpdir
