@@ -15,7 +15,7 @@ test('shoudl assemble single instruction when given a string', function(t) {
 });
 
 test('shoudl return stream when given a stream', function(t) {
-    var tr = through(function(d) {this.push(d);});
+    var tr = through();
     var out = asm(tr);
     var i = 0;
     t.plan(3);
