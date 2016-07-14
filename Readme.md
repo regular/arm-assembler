@@ -14,7 +14,7 @@ var through = require('through');
 var test = require('tape');
 var asm = require('.');
 
-test('shoudl assemble single instruction when given a string', function(t) {
+test('should assemble single instruction when given a string', function(t) {
     t.plan(4);
     asm('MOVEQ r0, r1, LSL r2', function(err, i) {
         t.equal(err, null);
@@ -26,7 +26,7 @@ test('shoudl assemble single instruction when given a string', function(t) {
     });
 });
 
-test('shoudl return stream when given a stream', function(t) {
+test('should return stream when given a stream', function(t) {
     var tr = through();
     var out = asm(tr);
     var i = 0;
